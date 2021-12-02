@@ -1,0 +1,37 @@
+{% extends "app_ezequiel/template.htm" %}
+{% load static %}
+
+{% block cabecalho %}
+	<title>Quem Somos?</title>
+{% endblock %}
+
+{% block estilo %}
+	<link rel="stylesheet" type="text/css" href="{% static 'app_ezequiel/estilos.css' %}">
+{% endblock %}
+
+{% block conteudo %}
+	<header>
+		<h1>Conheça o {{nome_familia}}</h1>
+	</header>
+
+	<main>
+		<p>
+			O {{nome|add:" "|add:nome_familia}} é uma pessoa incrível!!!!
+		</p>
+		<p>
+			Ele está cursando {{curso|upper}}. O curso de {{curso|lower}} é incrível.
+		</p>
+
+		<h1>História</h1>
+
+		{% lorem %}
+
+		<h1>Equipe</h1>
+
+		<ul>
+			{% for pessoa in equipe %}
+				<li><a href="{% url "equipe" pessoa %}">{{pessoa|title}}</a></li>
+			{% endfor %}
+		</ul>
+	</main>
+{% endblock %}

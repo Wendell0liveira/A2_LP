@@ -1,0 +1,33 @@
+{% extends "Jacob/template.htm" %}
+{% load static %}
+
+{% block cabecalho %}
+	<title>Quem Somos?</title>
+{% endblock %}
+
+{% block estilo %}
+	<link rel="stylesheet" type="text/css" href="{% static 'Jacob/estilos.css' %}">
+{% endblock %}
+
+{% block conteudo %}
+	<header>
+		<h1>Conheça o {{nome_familia}}</h1>
+	</header>
+
+	<main>
+		<p>
+			O {{nome|add:" "|add:nome_familia}} é um animal.
+		</p>
+		<p>
+			Ele está cursando {{curso|upper}}. O curso de {{curso|lower}} é facinho facinho.
+		</p>
+		
+		<h1>Equipe</h1>
+
+		<ul>
+			{% for pessoa in equipe %}
+				<li>{{pessoa|title}}</li>
+			{% endfor %}
+		</ul>
+	</main>
+{% endblock %}

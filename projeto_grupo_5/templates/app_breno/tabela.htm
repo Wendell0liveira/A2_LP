@@ -1,0 +1,37 @@
+{% extends "app_breno/template.htm" %}
+{% load static %}
+
+{% block cabecalho %}
+    <title>Tabela de Notas</title>
+{% endblock %}
+
+{% block estilo %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app_breno/estilos.css' %}">
+{% endblock %}
+
+{% block conteudo %}
+    <h2>Tabela de Filmes</h2>
+
+    <table>
+        <tr>
+            <th>Filme</th>
+            <th>Nota</th>
+            <th>Entendi o filme?</th>
+        </tr>
+        <tr>
+            <td>The Lighthouse</td>
+            <td>9.5</td>
+            <td>Não</td>
+        </tr>
+        <tr>
+            <td>Under the Silver Lake</td>
+            <td>8</td>
+            <td>Não</td>
+        </tr>
+        <tr>
+            <td>The Last Black Man in San Francisco</td>
+            <td>9</td>
+            <td>Mais ou Menos</td>
+        </tr>
+    </table>
+{% endblock %}
