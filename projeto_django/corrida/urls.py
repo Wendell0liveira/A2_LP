@@ -1,10 +1,10 @@
 
 from django.urls import path
-from app_wendell import views as views
+from corrida import views as views
 
 urlpatterns = [
-    path("", views.detalhes, name="detalhes"),
-    path("detalhes/<str:pagina>", views.detalhes, name="detalhes"),
+    path("", views.wikipage, name="wikipage"),
+    path("wikipage/<str:pagina>", views.wikipage, name="wikipage"),
     path("se_juntar/", views.se_juntar, name="se_juntar"),
     path("redes/<str:rede>", views.redes_sociais, name="redes"),
 ]

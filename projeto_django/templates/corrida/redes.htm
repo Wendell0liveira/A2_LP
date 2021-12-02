@@ -1,0 +1,24 @@
+{% extends "app_wendell/template.htm" %}
+{% load static %}
+
+{% block cabecalho %}
+	<title>Nosso {{rede}}</title>
+{% endblock %}
+
+{% block estilo %}
+	<link rel="stylesheet" type="text/css" href="{% static 'app_wendell/estilos.css' %}">
+{% endblock %}
+
+{% block conteudo %}
+	<header>
+		<h1>Esse é nosso {{rede}}</h1>
+	</header>
+		
+	<article>
+		<main>
+			<p>
+				<a href="https://{{rede}}.com{{link}}">{{rede}}{{link}}</a>
+			</p>
+		</main>
+		</article>
+{% endblock %}
