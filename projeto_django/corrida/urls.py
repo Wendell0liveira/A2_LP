@@ -3,6 +3,7 @@ from django.urls import path
 from corrida import views as views
 
 urlpatterns = [
-    path("wikipage/<str:pagina>", views.wikipage, name="wikipage"),
-    path("inicio/", views.inicio, name="inicio")
+    path("<str:objetivo>/<str:pagina>", views.wikipage, name="wikipage"),
+    path("inicio/", views.inicio, name="inicio"),
+    path("objetivo/Special:random", views.wikipage, name="comecar")
 ]
