@@ -4,4 +4,5 @@ from corrida import views as views
 
 urlpatterns = [
     path("wikipage/<str:pagina>", views.wikipage, name="wikipage"),
+    path("inicio/", views.inicio, name="inicio")
 ]

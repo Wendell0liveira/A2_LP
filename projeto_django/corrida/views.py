@@ -16,3 +16,6 @@ def wikipage(request,pagina):
         "html": html
     }
     return render(request, "corrida/wikipage.htm",context)
+def inicio(request):
+    #usar o códigozinho pra conseguir uma pagina aleatória e falar qual aqui, mostrar ela
+    return render(request, "corrida/inicio.htm")
