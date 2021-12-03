@@ -3,6 +3,8 @@ from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 import urllib.request as urllib2
+def index(request):
+    return (render(request,"corrida/index.htm"))
 def wikipage(request,objetivo,pagina):
     url = "https://en.wikipedia.org/wiki/"+pagina
     html = urllib2.urlopen(url).read().decode('utf-8')
@@ -12,14 +14,19 @@ def wikipage(request,objetivo,pagina):
     agora = html[html.find("<title>")+7:html.find("</title>")-12]
     print("estou aqui",agora)
     print(objetivo)
+    ganhou = 0
     if agora.replace(" ","_") == objetivo.replace(" ","_"):
         print("ganhou")
+        ganhou = 1
     
     
     context = {
         "html": html
     }
-    return render(request, "corrida/wikipage.htm",context)
+    if ganhou == 0:
+        return render(request, "corrida/wikipage.htm",context)
+    if ganhou == 1:
+        return render(request, "corrida/fim.htm",context)
 def inicio(request):
     print("aqui")
     """

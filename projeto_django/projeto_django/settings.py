@@ -25,7 +25,7 @@ STATIC_DIR = BASE_DIR / "static"
 SECRET_KEY = 'django-insecure-iajv2=f7h1mykr+rv8i$50%*hc75ni1!xq3&=4nl!xs&tva9g#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corrida',
-    'pagina_inicial',
 ]
 
 MIDDLEWARE = [
@@ -123,9 +122,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    STATIC_DIR
-]
+STATICFILES_DIRS = [STATIC_DIR]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

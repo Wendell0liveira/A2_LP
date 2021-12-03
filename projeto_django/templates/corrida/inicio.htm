@@ -1,21 +1,25 @@
-<!DOCTYPE html>
 
-<html lang="pt-br">
-    <head>
-        <meta charset="UTF-8"/>
-        <title>Wisadfsadfce</title>
-    </head>
+{% extends "template.htm" %}
+{% load static %}
 
-    <body>
-        <div>
-            vc deve ir até {{objetivostr}}
-        </div>
+{% block cabecalho %}
+    <title>Inicio</title>
+{% endblock %}
+
+{% block estilo %}
+	<link rel="stylesheet" type="text/css" href="{% static 'estilo.css' %}">
+{% endblock %}
+
+{% block conteudo %}
+    <p>
+        Seu objetivo é chegar a <a href=""></a> {{objetivostr}}
         
-        <div class = "box">
-            <table>
-                <tr><td><a class="btn btn-primary" href="/corrida/{{objetivo}}/Special:random">Jogsadsadar</a></td></tr>
-                <tr><td><a class="btn btn-primary" href="create.htm">Estaafsdastisticas</a></td></tr>
-            </table>
-        </div>
-    </body>
-</html>
+    </p>
+    <embed src="https://en.wikipedia.org/wiki/{{objetivo}}" >
+
+    <div class = "box">
+        <table>
+            <tr><td><a class="btn from-bottom" href="/corrida/{{objetivo}}/Special:random">Começar</a></td></tr>
+        </table>
+    </div>
+{% endblock %}

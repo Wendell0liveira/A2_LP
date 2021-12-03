@@ -1,0 +1,18 @@
+
+{% extends "template.htm" %}
+
+{% block cabecalho %}
+	<title>WikiRace</title>
+    <link rel="stylesheet" href="../../static/estilo.css">
+{% endblock %}
+
+{% block conteudo %}
+    <div>
+        <img class="displayed" src="http://logok.org/wp-content/uploads/2015/02/Wikipedia-logo-wordmark-880x660.png" alt="logo" style="width:440px;height:330px;">
+    </div>
+
+    
+    <a class="btn from-bottom" href="{% url 'inicio' %}">Jogar</a>
+    <a class="btn from-bottom" href="create.htm">Estatisticas</a>
+    
+{% endblock %}
