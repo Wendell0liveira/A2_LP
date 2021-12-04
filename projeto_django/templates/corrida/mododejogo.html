@@ -1,0 +1,23 @@
+
+{% extends "template.htm" %}
+{% load static %}
+
+{% block cabecalho %}
+    <title>Fim</title>
+{% endblock %}
+
+{% block estilo %}
+	<link rel="stylesheet" type="text/css" href="{% static 'estilo.css' %}">
+{% endblock %}
+
+{% block conteudo %}
+    <p>
+        Selecione o modo de jogo:
+        Normal: pega uma corrida do nosso banco de dados 
+        Aleatório: como o nome sugere vc pode ser mandado(a) de uma vila da rússia até uma peça de carro
+    </p>
+
+    <a class="btn from-bottom" href="{% url 'inicio' 'normal' %}">Normal</a>
+    <a class="btn from-bottom" href="{% url 'inicio' 'aleatorio' %}">aleatorio</a>
+    <a class="btn from-bottom" href="{% url 'index'%}">pagina inicial</a>
+{% endblock %}

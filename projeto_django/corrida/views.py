@@ -2,7 +2,9 @@ from django.conf.urls import url
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
+from .models import Race
 import urllib.request as urllib2
+import random
 def index(request):
     return (render(request,"corrida/index.htm"))
 def wikipage(request,objetivo,pagina):
@@ -28,25 +30,17 @@ def wikipage(request,objetivo,pagina):
     if ganhou == 1:
         return render(request, "corrida/fim.htm",context)
 def inicio(request):
-    print("aqui")
+    
     """
-    #definindo o objetivo:
-    url2 = "https://en.wikipedia.org/wiki/"+"Special:random"
-    html2 = urllib2.urlopen(url2).read().decode('utf-8')
-    #html = html.replace("//upload", "https://upload")
-    #html = html.replace("/w/", "https://en.wikipedia.org/w/")
-    #html = html.replace("/wiki/", "/corrida/"+objetivo+"/")
-    objetivo = html2[html2.find("<title>")+7:html.find("</title>")-12]
-
-    context = {
-        "objetivo": objetivo
-    }"""
     url2 = "https://en.wikipedia.org/wiki/"+"Special:random"
     html2 = urllib2.urlopen(url2).read().decode('utf-8')
     objetivo = html2[html2.find("<title>")+7:html2.find("</title>")-12]
-    print(objetivo)
+    """
+    todas = Race.objects.all()
+    objetivo = todas[random.randint(0, len(todas)-1)].begin
     context = {
         "objetivostr": objetivo,
         "objetivo": objetivo.replace(" ","_")
     }
+    
     return render(request, "corrida/inicio.htm",context)
