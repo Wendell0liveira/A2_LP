@@ -29,18 +29,23 @@ def wikipage(request,objetivo,pagina):
         return render(request, "corrida/wikipage.htm",context)
     if ganhou == 1:
         return render(request, "corrida/fim.htm",context)
-def inicio(request):
-    
-    """
-    url2 = "https://en.wikipedia.org/wiki/"+"Special:random"
-    html2 = urllib2.urlopen(url2).read().decode('utf-8')
-    objetivo = html2[html2.find("<title>")+7:html2.find("</title>")-12]
-    """
-    todas = Race.objects.all()
-    objetivo = todas[random.randint(0, len(todas)-1)].begin
+def inicio(request,modo):
+    if modo == "aleatorio":
+        url2 = "https://en.wikipedia.org/wiki/"+"Special:random"
+        html2 = urllib2.urlopen(url2).read().decode('utf-8')
+        objetivo = html2[html2.find("<title>")+7:html2.find("</title>")-12]
+        largada = "Special:random"
+    if modo == "normal":
+        todas = Race.objects.all()
+        corrida = todas[random.randint(0, len(todas)-1)]
+        objetivo = corrida.end
+        largada = corrida.begin
     context = {
         "objetivostr": objetivo,
-        "objetivo": objetivo.replace(" ","_")
+        "objetivo": objetivo.replace(" ","_"),
+        "largada": largada.replace(" ","_")
     }
     
     return render(request, "corrida/inicio.htm",context)
+def mododejogo(request):
+    return render(request, "corrida/mododejogo.htm")
