@@ -6,13 +6,10 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         Corridas = pd.read_csv("corridas.csv")
-        print("kkkkkkkkkkkkkkkkkk")
-        print(Race.objects.all())
+        
         #print(Corridas)
         for index, row in Corridas.iterrows():
-            print(row['begin'])
             Race.objects.create(begin=row['begin'],end = row['end'],rating = row['rating'])
-        print(Race.objects.all())
         
 
     

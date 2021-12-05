@@ -18,11 +18,8 @@ def wikipage(request,objetivo,pagina):
     html = html.replace("/w/", "https://pt.wikipedia.org/w/")
     html = html.replace("/wiki/", "/corrida/"+objetivo+"/")
     agora = html[html.find("<title>")+7:html.find("</title>")-34]
-    print("estou aqui",agora)
-    print(objetivo)
     ganhou = 0
     if agora.replace(" ","_") == objetivo.replace(" ","_"):
-        print("ganhou")
         ganhou = 1
     
     
@@ -50,7 +47,6 @@ def inicio(request,modo):
             largada = corrida.begin
         else:
             return render(request, "corrida/listavazia.htm")
-    print(objetivo)
     context = {
         "objetivostr": objetivo.replace("_"," "),
         "objetivo": objetivo.replace(" ","_"),
