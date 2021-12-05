@@ -13,6 +13,11 @@
 
     
     <a class="btn from-bottom" href="{% url 'mododejogo'%}">Jogar</a>
+    {% if user.is_authenticated %}
+        <a class="btn from-bottom" href="{% url 'logout'%}">Logout</a>
+    {% else %}
+        <a class="btn from-bottom" href="{% url 'login'%}">Login</a>
+    {% endif %}
     <a class="btn from-bottom" href="create.htm">Estatisticas</a>
     
 {% endblock %}
