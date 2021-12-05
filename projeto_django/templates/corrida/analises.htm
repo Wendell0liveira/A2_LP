@@ -1,0 +1,21 @@
+
+{% extends "template.htm" %}
+{% load static %}
+
+{% block cabecalho %}
+    <title>Inicio</title>
+{% endblock %}
+
+{% block estilo %}
+	<link rel="stylesheet" type="text/css" href="{% static 'estilo.css' %}">
+{% endblock %}
+
+{% block conteudo %}
+    <p>
+       Não deu tempo de fazer as análises, minha pretensão era simular várias corridas e armazenar a trajerória dos usuários, 
+       com esses dados fazer algum algoritmo que determinava qual anúncio deve ser mostrado pra ele baseado só no que ele clica
+       Ex: se eu tenho duas categorias de anúncios, anúncio de carro e anúncio de música, eu pretendia determinar qual mostrar
+       baseado no que ele clica. 
+    </p>
+    
+{% endblock %}

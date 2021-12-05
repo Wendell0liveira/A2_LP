@@ -56,3 +56,5 @@ def inicio(request,modo):
     return render(request, "corrida/inicio.htm",context)
 def mododejogo(request):
     return render(request, "corrida/mododejogo.htm")
+def analises(request):
+    return render(request, "corrida/analises.htm")
