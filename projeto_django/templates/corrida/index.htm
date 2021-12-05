@@ -8,7 +8,7 @@
 
 {% block conteudo %}
     <div>
-        <img class="displayed" src="http://logok.org/wp-content/uploads/2015/02/Wikipedia-logo-wordmark-880x660.png" alt="logo" style="width:440px;height:330px;">
+        <img class="displayed" src="../../static/wikirace.png" alt="logo" style="width:450px;height:175px;">
     </div>
 
     
@@ -18,6 +18,6 @@
     {% else %}
         <a class="btn from-bottom" href="{% url 'login'%}">Login</a>
     {% endif %}
-    <a class="btn from-bottom" href="create.htm">Estatisticas</a>
+    <a class="btn from-bottom" href="{% url 'analises' %}">Análises</a>
     
 {% endblock %}
