@@ -6,5 +6,6 @@ urlpatterns = [
     path("",index,name='pagina inicial'),
     path("register/", register_views.register, name="register"),
     path(r"corrida/", include("corrida.urls")),
-    path('admin/', admin.site.urls)
+    path('admin/', admin.site.urls),
+    path('', include("django.contrib.auth.urls")), 
 ]
