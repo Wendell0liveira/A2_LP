@@ -8,12 +8,12 @@ import random
 def index(request):
     return (render(request,"corrida/index.htm"))
 def wikipage(request,objetivo,pagina):
-    url = "https://en.wikipedia.org/wiki/"+pagina
+    url = "https://pt.wikipedia.org/wiki/"+pagina
     html = urllib2.urlopen(url).read().decode('utf-8')
     html = html.replace("//upload", "https://upload")
-    html = html.replace("/w/", "https://en.wikipedia.org/w/")
+    html = html.replace("/w/", "https://pt.wikipedia.org/w/")
     html = html.replace("/wiki/", "/corrida/"+objetivo+"/")
-    agora = html[html.find("<title>")+7:html.find("</title>")-12]
+    agora = html[html.find("<title>")+7:html.find("</title>")-34]
     print("estou aqui",agora)
     print(objetivo)
     ganhou = 0
@@ -31,10 +31,10 @@ def wikipage(request,objetivo,pagina):
         return render(request, "corrida/fim.htm",context)
 def inicio(request,modo):
     if modo == "aleatorio":
-        url2 = "https://en.wikipedia.org/wiki/"+"Special:random"
+        url2 = "https://pt.wikipedia.org/wiki/"+"Especial:RandomRootpage"
         html2 = urllib2.urlopen(url2).read().decode('utf-8')
-        objetivo = html2[html2.find("<title>")+7:html2.find("</title>")-12]
-        largada = "Special:random"
+        objetivo = html2[html2.find("<title>")+7:html2.find("</title>")-34]
+        largada = "Especial:RandomRootpage"
     if modo == "normal":
         todas = Race.objects.all()
         corrida = todas[random.randint(0, len(todas)-1)]
