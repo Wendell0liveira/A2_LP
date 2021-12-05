@@ -1,0 +1,24 @@
+{% extends "template.htm" %}
+{% load static %}
+
+{% block cabecalho %}
+    <title>Inicio</title>
+{% endblock %}
+
+{% block estilo %}
+	<link rel="stylesheet" type="text/css" href="{% static 'estilo.css' %}">
+{% endblock %}
+
+{% block conteudo %}
+    <p>
+        Não há corridas adicionadas :(
+        Use o comando "python manage.py atualizar_corridas"
+        
+    </p>
+
+    <div class = "box">
+        <table>
+            <tr><td><a class="btn from-bottom" href="{% url 'index'%}">pagina inicial</a></td></tr>
+        </table>
+    </div>
+{% endblock %}

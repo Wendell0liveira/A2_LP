@@ -2,7 +2,9 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-
+def atualizarcorridas():
+    print("kkk")
+    pass
 
 def main():
     """Run administrative tasks."""

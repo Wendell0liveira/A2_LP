@@ -43,10 +43,13 @@ def inicio(request,modo):
         objetivo = html2[html2.find("<title>")+7:html2.find("</title>")-34]
         largada = "Especial:RandomRootpage"
     if modo == "normal":
-        todas = Race.objects.all()
-        corrida = todas[random.randint(0, len(todas)-1)]
-        objetivo = corrida.end
-        largada = corrida.begin
+        if len(Race.objects.all())>0:
+            todas = Race.objects.all()
+            corrida = todas[random.randint(0, len(todas)-1)]
+            objetivo = corrida.end
+            largada = corrida.begin
+        else:
+            return render(request, "corrida/listavazia.htm")
     print(objetivo)
     context = {
         "objetivostr": objetivo.replace("_"," "),
