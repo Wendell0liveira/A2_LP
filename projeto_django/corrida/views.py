@@ -4,11 +4,15 @@ from django.shortcuts import render
 from django.urls import reverse
 from .models import Race
 import urllib.request as urllib2
+from urllib import parse
 import random
 def index(request):
     return (render(request,"corrida/index.htm"))
 def wikipage(request,objetivo,pagina):
     url = "https://pt.wikipedia.org/wiki/"+pagina
+    scheme, netloc, path, query, fragment = parse.urlsplit(url)
+    path = parse.quote(path)
+    url = parse.urlunsplit((scheme, netloc, path, query, fragment))
     html = urllib2.urlopen(url).read().decode('utf-8')
     html = html.replace("//upload", "https://upload")
     html = html.replace("/w/", "https://pt.wikipedia.org/w/")
@@ -32,6 +36,9 @@ def wikipage(request,objetivo,pagina):
 def inicio(request,modo):
     if modo == "aleatorio":
         url2 = "https://pt.wikipedia.org/wiki/"+"Especial:RandomRootpage"
+        scheme, netloc, path, query, fragment = parse.urlsplit(url2)
+        path = parse.quote(path)
+        url2 = parse.urlunsplit((scheme, netloc, path, query, fragment))
         html2 = urllib2.urlopen(url2).read().decode('utf-8')
         objetivo = html2[html2.find("<title>")+7:html2.find("</title>")-34]
         largada = "Especial:RandomRootpage"
