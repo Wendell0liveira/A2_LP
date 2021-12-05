@@ -47,8 +47,9 @@ def inicio(request,modo):
         corrida = todas[random.randint(0, len(todas)-1)]
         objetivo = corrida.end
         largada = corrida.begin
+    print(objetivo)
     context = {
-        "objetivostr": objetivo,
+        "objetivostr": objetivo.replace("_"," "),
         "objetivo": objetivo.replace(" ","_"),
         "largada": largada.replace(" ","_")
     }
